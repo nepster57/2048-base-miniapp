@@ -102,6 +102,23 @@
 
   <!-- Base Mini App SDK: hide host splash once app is ready -->
   <script src="https://cdn.jsdelivr.net/npm/@farcaster/miniapp-sdk/dist/index.min.js"></script>
+  <script>
+    (function() {
+      function signalReady() {
+        if (typeof miniapp !== "undefined" && miniapp.actions && miniapp.actions.ready) {
+          miniapp.actions.ready();
+          return true;
+        }
+        return false;
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", signalReady);
+      } else {
+        signalReady();
+      }
+      window.addEventListener("load", signalReady);
+    })();
+  </script>
   <script src="js/bind_polyfill.js"></script>
   <script src="js/classlist_polyfill.js"></script>
   <script src="js/animframe_polyfill.js"></script>
