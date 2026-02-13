@@ -1,7 +1,41 @@
 # 2048
-A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone). 2048 was indirectly inspired by [Threes](https://asherv.com/threes/).
+
+A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone). 2048 was indirectly inspired by [Threes](https://asherv.com/threes/). This repo is set up as a **Base Mini App** and deploys to GitHub Pages.
 
 Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
+
+---
+
+## Base Mini App – Deploy & Publish
+
+1. **Enable GitHub Pages**  
+   Repo → **Settings** → **Pages** → **Build and deployment** → **Source**: **GitHub Actions**.
+
+2. **Deploy**  
+   Push the `master` branch. The workflow deploys the site to **https://nepster57.github.io/2048-base-miniapp/** and serves `/.well-known/farcaster.json`.
+
+3. **Account association** (one-time)  
+   - Open [Base Build → Account association](https://www.base.dev/preview?tab=account).  
+   - Enter app URL: `https://nepster57.github.io/2048-base-miniapp`.  
+   - Click **Submit**, then **Verify** and complete the steps.  
+   - Copy the generated **header**, **payload**, and **signature**.
+
+4. **Add GitHub secrets**  
+   Repo → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**. Create:
+   - `FC_AA_HEADER` (paste header)
+   - `FC_AA_PAYLOAD` (paste payload)
+   - `FC_AA_SIGNATURE` (paste signature)
+
+5. **Redeploy**  
+   **Actions** → **Deploy to GitHub Pages** → **Run workflow**. The next deployment will include the signed manifest.
+
+6. **Preview**  
+   Use the [Base Build Preview](https://www.base.dev/preview) and your app URL to check embeds and launch.
+
+7. **Publish**  
+   In the Base app, create a post with your app URL to publish the mini app.
+
+---
 
 The official app can also be found on the [Play Store](https://play.google.com/store/apps/details?id=com.gabrielecirulli.app2048) and [App Store!](https://itunes.apple.com/us/app/2048-by-gabriele-cirulli/id868076805)
 

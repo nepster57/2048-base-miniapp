@@ -1,0 +1,41 @@
+# Deploy to GitHub Pages so the app and /.well-known/farcaster.json are reachable
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: github_pages
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inject account association (from Base Build)
+        env:
+          FC_AA_HEADER: ${{ secrets.FC_AA_HEADER }}
+          FC_AA_PAYLOAD: ${{ secrets.FC_AA_PAYLOAD }}
+          FC_AA_SIGNATURE: ${{ secrets.FC_AA_SIGNATURE }}
+        run: |
+          node -e "
+          const fs = require('fs');
+          const p = '.well-known/farcaster.json';
+          const j = JSON.parse(fs.readFileSync(p, 'utf8'));
+          j.accountAssociation = {
+            header: process.env.FC_AA_HEADER || '',
+            payload: process.env.FC_AA_PAYLOAD || '',
+            signature: process.env.FC_AA_SIGNATURE || ''
+          };
+          fs.writeFileSync(p, JSON.stringify(j, null, 2));
+          "
+      - uses: actions/upload-pages-artifact@3
+        with:
+          path: .
+      - uses: actions/deploy-pages@4
+        if: success()

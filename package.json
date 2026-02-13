@@ -1,0 +1,9 @@
+{
+  "name": "2048-base-miniapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "2048 game as a Base Mini App",
+  "dependencies": {
+    "@farcaster/miniapp-sdk": "^0.2.2"
+  }
+}
