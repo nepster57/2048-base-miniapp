@@ -101,7 +101,8 @@
   </div>
 
   <!-- Base Mini App SDK: hide host splash once app is ready -->
-  <script src="https://cdn.jsdelivr.net/npm/@farcaster/miniapp-sdk/dist/index.min.js"></script>
+  <!-- SDK з того ж домену, щоб працювало в iframe Base App -->
+  <script src="js/miniapp-sdk.js"></script>
   <script>
     (function() {
       function signalReady() {
