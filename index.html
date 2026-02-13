@@ -20,13 +20,13 @@
   <!-- Base Mini App: required for rich embeds when app is shared (docs.base.org/mini-apps/quickstart/migrate-existing-apps) -->
   <meta name="fc:miniapp" content='{
     "version":"next",
-    "imageUrl":"https://2048-base-miniapp.vercel.app/meta/apple-touch-icon.png",
+    "imageUrl":"https://2048-base-miniapp-hazel.vercel.app/meta/apple-touch-icon.png",
     "button":{
       "title":"Play Now",
       "action":{
         "type":"launch_miniapp",
         "name":"2048",
-        "url":"https://2048-base-miniapp.vercel.app"
+        "url":"https://2048-base-miniapp-hazel.vercel.app"
       }
     }
   }' />
@@ -86,6 +86,15 @@
     }
     .wallet-connect-error.visible {
       display: block;
+    }
+    .miniapp-credit {
+      font-size: 14px;
+      color: #8f7a66;
+      margin-top: 8px;
+    }
+    .miniapp-credit a {
+      color: #8f7a66;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -162,6 +171,7 @@
     <p>
     Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
     </p>
+    <p class="miniapp-credit">Base Mini App · <a href="https://warpcast.com/nepster57" target="_blank" rel="noopener">@nepster57</a></p>
   </div>
 
   <!-- Base Mini App SDK: hide host splash once app is ready -->
