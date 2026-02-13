@@ -34,16 +34,24 @@
         setLoading(false);
         return;
       }
-      // Простий виклик підключення: eth_requestAccounts (стандартний connect)
+      // 1. Підключення кошелька (стандартний виклик)
       var accounts = await provider.request({ method: "eth_requestAccounts" });
-      if (accounts && accounts.length > 0) {
-        window.walletConnected = true;
-        overlay.classList.remove("visible");
-        if (typeof window.pendingStartGame === "function") {
-          window.pendingStartGame();
-        }
-      } else {
+      if (!accounts || accounts.length === 0) {
         showError("Гаманець не підключено.");
+        setLoading(false);
+        return;
+      }
+      // 2. Проста перевірка мережі Base (chainId 8453) — підтвердження підключення
+      var chainId = await provider.request({ method: "eth_chainId" });
+      if (chainId && chainId !== "0x2105" && chainId !== "8453") {
+        showError("Переключіться на мережу Base в гаманці.");
+        setLoading(false);
+        return;
+      }
+      window.walletConnected = true;
+      overlay.classList.remove("visible");
+      if (typeof window.pendingStartGame === "function") {
+        window.pendingStartGame();
       }
     } catch (e) {
       console.error("Wallet connect error:", e);
