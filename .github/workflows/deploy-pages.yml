@@ -34,8 +34,8 @@ jobs:
           };
           fs.writeFileSync(p, JSON.stringify(j, null, 2));
           "
-      - uses: actions/upload-pages-artifact@3
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: .
-      - uses: actions/deploy-pages@4
+      - uses: actions/deploy-pages@v4
         if: success()
