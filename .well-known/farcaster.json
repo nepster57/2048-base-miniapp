@@ -1,29 +1,27 @@
 {
   "accountAssociation": {
-    "header": "",
-    "payload": "",
-    "signature": ""
+    "header": "eyJmaWQiOjIzNTU0NzEsInR5cGUiOiJhdXRoIiwia2V5IjoiMHgwOEVENkQ1NjE2MDIyRDk2N2Q0NTA4OWU0RjgxZjI4ODMyOTZhNjRFIn0",
+    "payload": "eyJkb21haW4iOiIyMDQ4LWJhc2UtbWluaWFwcC1oYXplbC52ZXJjZWwuYXBwIn0",
+    "signature": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEGElA7aB-0L5GHAyqS8-qMW7hqhL7MhGGScu5G1qZMOKDcpjHQ69dYbm5XcBW40EjSAjBL89cyWgXiWFlFkeZhtHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   },
   "miniapp": {
     "version": "1",
     "name": "2048",
-    "homeUrl": "https://nepster57.github.io/2048-base-miniapp",
-    "iconUrl": "https://nepster57.github.io/2048-base-miniapp/meta/apple-touch-icon.png",
-    "splashImageUrl": "https://nepster57.github.io/2048-base-miniapp/meta/apple-touch-icon.png",
+    "homeUrl": "https://2048-base-miniapp.vercel.app",
+    "iconUrl": "https://2048-base-miniapp.vercel.app/meta/apple-touch-icon.png",
+    "splashImageUrl": "https://2048-base-miniapp.vercel.app/meta/apple-touch-icon.png",
     "splashBackgroundColor": "#faf8ef",
-    "webhookUrl": "https://nepster57.github.io/2048-base-miniapp/api/webhook",
+    "webhookUrl": "https://2048-base-miniapp.vercel.app/api/webhook",
     "subtitle": "Join the numbers, get to 2048",
     "description": "Slide numbered tiles to merge them. Reach the 2048 tile and beyond.",
-    "screenshotUrls": [
-      "https://nepster57.github.io/2048-base-miniapp/meta/apple-touch-icon.png"
-    ],
+    "screenshotUrls": ["https://2048-base-miniapp.vercel.app/meta/apple-touch-icon.png"],
     "primaryCategory": "games",
     "tags": ["2048", "game", "puzzle", "baseapp"],
-    "heroImageUrl": "https://nepster57.github.io/2048-base-miniapp/meta/apple-touch-icon.png",
+    "heroImageUrl": "https://2048-base-miniapp.vercel.app/meta/apple-touch-icon.png",
     "tagline": "Play 2048",
     "ogTitle": "2048",
     "ogDescription": "Join the numbers and get to the 2048 tile!",
-    "ogImageUrl": "https://nepster57.github.io/2048-base-miniapp/meta/apple-touch-icon.png",
+    "ogImageUrl": "https://2048-base-miniapp.vercel.app/meta/apple-touch-icon.png",
     "noindex": true
   }
 }

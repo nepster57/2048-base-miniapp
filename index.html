@@ -17,8 +17,19 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 
-  <!-- Base Mini App: required for rich embeds when app is shared -->
-  <meta name="fc:miniapp" content='{"version":"next","imageUrl":"https://nepster57.github.io/2048-base-miniapp/meta/apple-touch-icon.png","button":{"title":"Play Now","action":{"type":"launch_miniapp","name":"2048","url":"https://nepster57.github.io/2048-base-miniapp"}}}'>
+  <!-- Base Mini App: required for rich embeds when app is shared (docs.base.org/mini-apps/quickstart/migrate-existing-apps) -->
+  <meta name="fc:miniapp" content='{
+    "version":"next",
+    "imageUrl":"https://2048-base-miniapp.vercel.app/meta/apple-touch-icon.png",
+    "button":{
+      "title":"Play Now",
+      "action":{
+        "type":"launch_miniapp",
+        "name":"2048",
+        "url":"https://2048-base-miniapp.vercel.app"
+      }
+    }
+  }' />
 </head>
 <body>
   <div class="container">

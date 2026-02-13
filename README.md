@@ -1,6 +1,6 @@
 # 2048
 
-A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone). 2048 was indirectly inspired by [Threes](https://asherv.com/threes/). This repo is set up as a **Base Mini App** and deploys to GitHub Pages.
+A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone). 2048 was indirectly inspired by [Threes](https://asherv.com/threes/). This repo is set up as a **Base Mini App** and is configured for **Vercel** (app URL: **https://2048-base-miniapp.vercel.app**).
 
 Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
 
@@ -8,32 +8,29 @@ Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
 
 ## Base Mini App – Deploy & Publish
 
-1. **Enable GitHub Pages**  
-   Repo → **Settings** → **Pages** → **Build and deployment** → **Source**: **GitHub Actions**.
+### Deploy on Vercel
 
-2. **Deploy**  
-   Push the `master` branch. The workflow deploys the site to **https://nepster57.github.io/2048-base-miniapp/** and serves `/.well-known/farcaster.json`.
+1. **Import on Vercel**  
+   [vercel.com](https://vercel.com) → **Add New** → **Project** → import repo `nepster57/2048-base-miniapp`. Deploy. The app will be at **https://2048-base-miniapp.vercel.app** (or your custom domain). `/.well-known/farcaster.json` is served automatically.
 
-3. **Account association** (one-time)  
+2. **Account association** (one-time)  
    - Open [Base Build → Account association](https://www.base.dev/preview?tab=account).  
-   - Enter app URL: `https://nepster57.github.io/2048-base-miniapp`.  
+   - Enter app URL: `https://2048-base-miniapp.vercel.app`.  
    - Click **Submit**, then **Verify** and complete the steps.  
    - Copy the generated **header**, **payload**, and **signature**.
 
-4. **Add GitHub secrets**  
-   Repo → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**. Create:
-   - `FC_AA_HEADER` (paste header)
-   - `FC_AA_PAYLOAD` (paste payload)
-   - `FC_AA_SIGNATURE` (paste signature)
+3. **Add to manifest**  
+   Either paste them into `.well-known/farcaster.json` and push, or add as GitHub secrets (`FC_AA_HEADER`, `FC_AA_PAYLOAD`, `FC_AA_SIGNATURE`) and use the GitHub Actions deploy so the manifest is updated on each deploy.
 
-5. **Redeploy**  
-   **Actions** → **Deploy to GitHub Pages** → **Run workflow**. The next deployment will include the signed manifest.
+4. **Preview**  
+   Use the [Base Build Preview](https://www.base.dev/preview) with your app URL.
 
-6. **Preview**  
-   Use the [Base Build Preview](https://www.base.dev/preview) and your app URL to check embeds and launch.
-
-7. **Publish**  
+5. **Publish**  
    In the Base app, create a post with your app URL to publish the mini app.
+
+### Alternative: GitHub Pages
+
+Repo also has a **Deploy to GitHub Pages** workflow. In **Settings** → **Pages** set **Source** to **GitHub Actions**, then push. App URL will be `https://nepster57.github.io/2048-base-miniapp` (update URLs in `index.html` and `.well-known/farcaster.json` if you use Pages).
 
 ---
 
