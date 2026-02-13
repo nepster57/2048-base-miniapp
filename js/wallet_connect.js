@@ -62,6 +62,9 @@
     if (!inMiniApp) {
       window.requireWalletConnect = false;
       overlay.classList.remove("visible");
+      if (typeof window.pendingStartGame === "function") {
+        window.requestAnimationFrame(window.pendingStartGame);
+      }
       return;
     }
     window.requireWalletConnect = true;
